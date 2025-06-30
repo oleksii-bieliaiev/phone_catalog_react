@@ -1,0 +1,1 @@
+import{r as t,G as s,j as o}from"./index-_AbkKq8r.js";const n=()=>{const{theme:r}=t.useContext(s),e=r==="light"?"var(--color-accent)":"var(--color-accent-dark)";return o.jsx("div",{className:"loader",children:o.jsx("div",{className:"loader__spinner",style:{borderTopColor:e,width:"150px",height:"150px"}})})};export{n as L};
