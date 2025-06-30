@@ -5,8 +5,7 @@ import { GlobalContext } from '../../context/GlobalContext';
 import { ProductsSlider } from '../shared/ProductsSlider';
 import './HomePage.scss';
 
-const SLICE_LIMIT = 20;
-const PHONE_CATEGORY = 'phones';
+const MAX_ITEMS = 20;
 
 const calculateDiscount = (fullPrice: number, price: number): number =>
   ((fullPrice - price) / fullPrice) * 100;
@@ -26,9 +25,9 @@ export const HomePage: FC = () => {
     }
 
     return allProducts
-      .filter(product => product.category === PHONE_CATEGORY)
+      .filter(product => product.category === 'phones')
       .sort(sortByYear)
-      .slice(0, SLICE_LIMIT);
+      .slice(0, MAX_ITEMS);
   }, [allProducts]);
 
   const hotPricesProducts = useMemo(() => {
@@ -42,7 +41,7 @@ export const HomePage: FC = () => {
         discount: calculateDiscount(product.fullPrice, product.price),
       }))
       .sort(sortByDiscount)
-      .slice(0, SLICE_LIMIT);
+      .slice(0, MAX_ITEMS);
   }, [allProducts]);
 
   return (
